@@ -85,7 +85,7 @@
     StatusNetworkAuthenticationRequired = 511
 
 ### 签名验证:
-    （出于安全考虑，签名算法不对外公开，请在对接时联系可信开发工程师）
+    （出于安全考虑，签名算法不对外公开，请在对接时联系可信接口人员）
 
 ### 通过lock_id获取锁详情
 
@@ -96,7 +96,7 @@
 |字段名|类型|必填|示例|描述|
 ---|---|---|---|---|
 lock_id|unit32|是| |锁id|
-sign|string|是| |sign|
+sign|string|是| |签名|
 app_id|string|是| |app_id|
 
 ```json
@@ -187,7 +187,7 @@ app_id|string|是| |app_id|
 ```
 
 
-网络远程开锁（需要网关）
+### 网络远程开锁（需要网关）
 
 - method: post
 - url: /third/lock/open
@@ -258,7 +258,7 @@ sign|string|是| |sign|
 
 ```
 
-## 获取锁的状态信息（需要网关）
+### 获取锁的状态信息（需要网关）
 - method: post
 - url: /third/lock/state/get
 - request:
