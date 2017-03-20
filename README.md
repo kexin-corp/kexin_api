@@ -1,7 +1,27 @@
-## 简述
+
+# **可信物联网云平台第三方api接口**
+
+- [一、简介](#Introduction)
+- [二、状态码](#StatusCode)
+- [三、签名验证](#Sign)
+- [四、接口](#API)
+    - [通过lock_id获取锁详情](#LockGet)
+    - [通过Mac获取锁详情](#LockByMacGet)
+    - [网络远程开锁（需要网关）](#LockOpen)
+    - [人脸识别远程开锁](#LockOpenFace)
+    - [ 获取锁的状态信息（需要网关）](#LockState)
+    - [获取临时开锁密码](#LockPwdGet)
+    - [获取时钟同步sequence](#LockTimeSyncSeqGet)
+    - [上报时钟同步结果](#LockTimeSync)
+    - [分配用户开锁密码（写入方式，需要网关）](#V2LockPwdGet)
+    - [回收用户开锁密码（需要网关）](#V2LockPwdDel)
+    - [通过密码远程开锁（需要网关）](#V2LockOpen)
+
+## 一、<a name="Introduction">简介</a>
 本文档是可信物联网云平台第三方api接口文档
 
-### 状态码
+
+## 二、<a name="StatusCode">状态码</a>
 
     StatusContinue              = 100
     StatusSwitchingProtocols    = 101
@@ -84,10 +104,12 @@
     StatusHTTPVersionNotSupported       = 505
     StatusNetworkAuthenticationRequired = 511
 
-### 签名验证:
+## 三、<a name="Sign">签名验证</a>
     （出于安全考虑，签名算法不对外公开，请在对接时联系可信接口人员）
 
-### 通过lock_id获取锁详情
+## 四、<a name="API">接口</a>
+
+###  <a name="LockGet">通过lock_id获取锁详情</a>
 
 - method: post
 - url: /third/lock/get
@@ -137,7 +159,8 @@ app_id|string|是| |app_id|
 
 ```
 
-###  通过mac获取锁详情
+###  <a name="LockByMacGet"> 通过mac获取锁详情</a>
+
 - method: post
 - url: /third/lock/by_mac/get
 - request
@@ -186,8 +209,7 @@ app_id|string|是| |app_id|
 
 ```
 
-
-### 网络远程开锁（需要网关）
+###  <a name="LockOpen">网络远程开锁（需要网关）</a>
 
 - method: post
 - url: /third/lock/open
@@ -220,7 +242,8 @@ app_id|string|是| |app_id|
 
 ```
 
-### 人脸识别远程开锁
+###  <a name="LockOpenFace">人脸识别远程开锁</a>
+
 - method: post
 - url: /third/lock/open/face
 - request:
@@ -258,7 +281,8 @@ sign|string|是| |sign|
 
 ```
 
-### 获取锁的状态信息（需要网关）
+###  <a name="LockState"> 获取锁的状态信息（需要网关）</a>
+
 - method: post
 - url: /third/lock/state/get
 - request:
@@ -300,8 +324,8 @@ low_voltage|bool|是|false|是否低电压|
 }
 ```
 
+###  <a name="LockPwdGet"> 获取临时开锁密码</a>
 
-### 获取开锁密码：
 - method: post
 - url: /third/lock/pwd/get
 - request:
@@ -336,8 +360,8 @@ sign|string|是| |sign|
 ```
 
 
+###  <a name="LockTimeSyncSeqGet"> 获取时钟同步sequence</a>
 
-### 获取时钟同步sequence
 - method: post
 - url: /third/lock/time_sync/seq/get
 - request:
@@ -369,7 +393,7 @@ app_id|string|是| |app_id|
 }
 ```
 
-###  上报时钟同步结果
+###  <a name="LockTimeSync">上报时钟同步结果</a>
 - method: post
 - url: /third/lock/time_sync/result          
 - request:
@@ -402,7 +426,7 @@ sign|string|是| |sign|
 }
 ```
 
-### 分配用户开锁密码（写入方式，需要网关）
+###  <a name="V2LockPwdGet">分配用户开锁密码（写入方式，需要网关）</a>
 
 - method: post
 - url: /third/v2/lock/pwd/get
@@ -440,7 +464,7 @@ sign|string|是| |sign|
 ```
 
 
-### 回收用户开锁密码（需要网关）
+###  <a name="V2LockPwdDel"> 回收用户开锁密码（需要网关）</a>
 
 - method: post
 - url: /third/v2/lock/pwd/del
@@ -471,8 +495,7 @@ sign|string|是| |sign|
 }
 ```
 
-
-### 通过密码远程开锁（需要网关）
+###  <a name="V2LockOpen">通过密码远程开锁（需要网关）</a>
 
 - method: post
 - url: /third/v2/lock/open
