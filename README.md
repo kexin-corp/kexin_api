@@ -334,7 +334,7 @@ low_voltage|bool|是|false|是否低电压|
 ---|---|---|---|---|
 app_id|string|是| |app_id|
 lock_id|uint32|是| |锁id|
-effective_at|uint32|是| |开始生效时间，unix时间戳|
+effective_at|uint32|是| |开始生效时间，unix时间戳，必须是从当天开始的时间|
 expire|uint32|是| |密码有效时长，单位秒,目前固定写300秒|
 sign|string|是| |sign|
 
@@ -437,7 +437,7 @@ sign|string|是| |sign|
 app_id|string|是| |app_id|
 lock_id|uint32|是| |锁id|
 uid|uint32|是| |用户ID,给此用户分配一个密码|
-effective_at|uint32|是| |开始生效时间，unix时间戳|
+effective_at|uint32|是| |开始生效时间，unix时间戳，必须是从当天开始的时间|
 expire|uint32|是| |密码有效时长，单位秒|
 sign|string|是| |sign|
 
