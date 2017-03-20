@@ -362,8 +362,8 @@ app_id|string|是| |app_id|
     "code": 200,
     "desc": "OK",
     "data": {
-         "seq":51459843,
-         "key1":785165551,
+         "seq":51459843,
+         "key1":785165551,
          "key2":189439575
     }
 }
@@ -395,6 +395,107 @@ sign|string|是| |sign|
 
 - response data:
 ```json
+{
+    "code": 200,
+    "desc": "OK",
+    "data": null
+}
+```
+
+### 分配用户开锁密码（写入方式，需要网关）
+
+- method: post
+- url: /third/v2/lock/pwd/get
+- request:
+
+|字段名|类型|必填|示例|描述|
+---|---|---|---|---|
+app_id|string|是| |app_id|
+lock_id|uint32|是| |锁id|
+uid|uint32|是| |用户ID,给此用户分配一个密码|
+effective_at|uint32|是| |开始生效时间，unix时间戳|
+expire|uint32|是| |密码有效时长，单位秒|
+sign|string|是| |sign|
+
+```json
+{
+    "app_id": "app_kexin",
+    "effective_at": 1478585100,
+    "lock_id": 1000003,
+    "uid" : 100001,
+    "expire": 300,
+    "sign": "a6b5986b23d42b4f09868e40632ef002"
+}
+```
+
+- response data:
+```json
+{
+    "code": 200,
+    "desc": "ok",
+    "data": {
+       "password":"145332"
+    }
+}
+```
+
+
+### 回收用户开锁密码（需要网关）
+
+- method: post
+- url: /third/v2/lock/pwd/del
+- request:
+
+|字段名|类型|必填|示例|描述|
+---|---|---|---|---|
+app_id|string|是| |app_id|
+lock_id|uint32|是| |锁id|
+uid|uint32|是| |用户ID,回收此用户密码|
+sign|string|是| |sign|
+
+```json
+{
+    "app_id": "app_kexin",
+    "lock_id": 1000003,
+    "uid" : 100001,
+    "sign": "a6b5986b23d42b4f09868e40632ef002"
+}
+```
+
+- response data:
+```
+{
+    "code": 200,
+    "desc": "OK",
+    "data": null
+}
+```
+
+
+### 通过密码远程开锁（需要网关）
+
+- method: post
+- url: /third/v2/lock/open
+- request:
+
+|字段名|类型|必填|示例|描述|
+---|---|---|---|---|
+app_id|string|是| |app_id|
+lock_id|uint32|是| |锁id|
+password|string|是| |密码|
+sign|string|是| |sign|
+
+```json
+{
+    "app_id": "app_kexin",
+    "lock_id": 1000003,
+    "password" : "234541",
+    "sign": "a6b5986b23d42b4f09868e40632ef002"
+}
+```
+
+- response data:
+```
 {
     "code": 200,
     "desc": "OK",
