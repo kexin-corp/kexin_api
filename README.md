@@ -362,7 +362,7 @@ app_id|string|是| |app_id|
     "code": 200,
     "desc": "OK",
     "data": {
-         "seq"：51459843,
+         "seq":51459843,
          "key1":785165551,
          "key2":189439575
     }
