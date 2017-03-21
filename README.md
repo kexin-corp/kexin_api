@@ -16,6 +16,7 @@
     - [分配用户开锁密码（写入方式，需要网关）](#V2LockPwdGet)
     - [回收用户开锁密码（需要网关）](#V2LockPwdDel)
     - [通过密码远程开锁（需要网关）](#V2LockOpen)
+    - [消息推送](#PushMessage)
 
 ## 一、<a name="Introduction">简介</a>
 本文档是可信物联网云平台第三方api接口文档
@@ -386,9 +387,9 @@ app_id|string|是| |app_id|
     "code": 200,
     "desc": "OK",
     "data": {
-         "seq":51459843,
-         "key1":785165551,
-         "key2":189439575
+        "seq": 51459843,
+        "key1": 78516551,
+        "key2": 189439575
     }
 }
 ```
@@ -525,3 +526,68 @@ sign|string|是| |sign|
     "data": null
 }
 ```
+
+
+###  <a name="PushMessage">消息推送</a>
+
+- method: post
+- url: （由第三方提供）
+- request:
+
+|字段名|类型|必填|示例|描述|
+---|---|---|---|---|
+type|int|是| |消息类型|
+data|object|是| |消息内容，根据type而定|
+
+
+- type = 1,网关上线或下线
+
+|字段名|类型|必填|示例|描述|
+---|---|---|---|---|
+ap_id|int|是| |网关Id|
+online|bool|是| |true：上线 ， false：掉线|
+
+```json
+{
+    "type": 1,
+    "data": {
+        "ap_id": 1000002,
+        "online": true
+    }
+}
+```
+
+- type = 2，开锁日志
+
+|字段名|类型|必填|示例|描述|
+---|---|---|---|---|
+lock_id|int|是| |锁Id|
+result|bool|是| |1 ：开锁成功 ， 2：开锁失败|
+
+```json
+{
+    "type": 2,
+    "data": {
+        "lock_id": 1000001,
+        "result": 1
+    }
+}
+```
+
+- type = 3，低电压警报
+
+|字段名|类型|必填|示例|描述|
+---|---|---|---|---|
+lock_id|int|是| |锁Id|
+remain|float|是| |剩余电量百分比|
+
+```json
+{
+    "type": 3,
+    "data": {
+        "lock_id": 1000001,
+        "remain": 30
+    }
+}
+```
+
