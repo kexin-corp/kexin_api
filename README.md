@@ -562,15 +562,17 @@ online|bool|是| |true：上线 ， false：掉线|
 |字段名|类型|必填|示例|描述|
 ---|---|---|---|---|
 lock_id|int|是| |锁Id|
-result|bool|是| |1 ：开锁成功 ， 2：开锁失败|
+result|int|是| |1 ：开锁成功 ， 2：开锁失败|
+password|string|否| |开锁密码|
 
 ```json
 {
     "type": 2,
     "data": {
         "lock_id": 1000001,
-        "result": 1
-    }
+        "result": 1,
+        "password": "515642"
+        }
 }
 ```
 
