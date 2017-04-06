@@ -563,7 +563,7 @@ online|bool|是| |true：上线 ， false：掉线|
 ---|---|---|---|---|
 lock_id|int|是| |锁Id|
 result|int|是| |1 ：开锁成功 ， 2：开锁失败|
-password|string|否| |开锁密码|
+password|string|否| |开锁密码，仅网络开锁时有值|
 mode|int|是| |开锁方式：1按键开锁，2，蓝牙开锁 3，网络开锁|
 time|string|是| |开锁时间|
 ```json
