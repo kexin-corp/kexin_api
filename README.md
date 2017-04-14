@@ -117,7 +117,7 @@
 - app_secret: a0cc195a3034c6de34c9dfccf765117b
 ```json
 {  "lock_id":1,
-   "app_id":"app_xbed"
+   "app_id":"app_test"
 }
 ```
 - (1)待签名字符串为：{"app_id":"app_test","lock_id":1}+a0cc195a3034c6de34c9dfccf765117b+413118
@@ -126,7 +126,7 @@
 - (3) 请求时,实际发送的json为：
 ```json
 {  "lock_id":1,
-   "app_id":"app_xbed",
+   "app_id":"app_test",
    "sign":"a707c749d0e02a7d8e7a4d670e8632c3"
 }
 ```
