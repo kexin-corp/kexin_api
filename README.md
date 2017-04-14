@@ -106,7 +106,31 @@
     StatusNetworkAuthenticationRequired = 511
 
 ## 三、<a name="Sign">签名验证</a>
-    （出于安全考虑，签名算法不对外公开，请在对接时联系可信接口人员）
+#### 1.联系接口对接人获取app_id 和app_secret
+#### 2.签名步骤：
+- (1) 请求json参数按字母升序排列+app_secret+时间变量(用+连接, 且不要有空格)，生成待签名字符串。
+- (2) 再对字符串使用MD5生成sign。
+- (3) 将sign加入原json作为实际发送的请求数据。
+
+#### 3.签名举例：
+- app_id: "app_test"
+- app_secret: a0cc195a3034c6de34c9dfccf765117b
+```json
+{  "lock_id":1,
+   "app_id":"app_xbed"
+}
+```
+- (1)待签名字符串为：{"app_id":"app_test","lock_id":1}+a0cc195a3034c6de34c9dfccf765117b+413118
+（时间变量=当前unix时间戳/3600，比如当前时间戳为1487226152，那么时间变量是413118）
+- (2) MD5生成sign为：a707c749d0e02a7d8e7a4d670e8632c3
+- (3) 请求时,实际发送的json为：
+```json
+{  "lock_id":1,
+   "app_id":"app_xbed",
+   "sign":"a707c749d0e02a7d8e7a4d670e8632c3"
+}
+```
+
 
 ## 四、<a name="API">接口</a>
 
