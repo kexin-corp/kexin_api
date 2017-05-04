@@ -21,7 +21,7 @@
 
 
 ## 二、<a name="StatusCode">状态码</a>
-
+```
     StatusContinue              = 100
     StatusSwitchingProtocols    = 101
 
@@ -103,7 +103,9 @@
     StatusGatewayTimeout                = 504
     StatusHTTPVersionNotSupported       = 505
     StatusNetworkAuthenticationRequired = 511
-
+    
+    StatusUnknownError                  = 1000  //未知错误
+```
 ## 三、<a name="Sign">签名验证</a>
 #### 1.联系接口对接人获取app_id 和app_secret
 #### 2.签名步骤：
