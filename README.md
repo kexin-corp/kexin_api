@@ -433,7 +433,7 @@ sign|string|是| |sign|
 ---|---|---|---|---|
 app_id|string|是| |app_id|
 lock_id|uint32|是| |锁id|
-uid|uint32|是| |用户ID,回收此用户密码|
+uid|uint32|是| |用户ID,回收此用户密码，当uid=0时，删除所有用户的密码|
 sign|string|是| |sign|
 
 ```json
