@@ -521,7 +521,7 @@ online|bool|是| |true：上线 ， false：掉线|
 ---|---|---|---|---|
 lock_id|int|是| |锁Id|
 result|int|是| |1 ：开锁成功 ， 2：开锁失败|
-uid|int|否| |用户ID|
+uid|int|是| |用户ID|
 mode|int|是| |开锁方式：1按键开锁，2，蓝牙开锁 3，网络开锁|
 time|string|是| |开锁时间|
 ```json
@@ -530,7 +530,7 @@ time|string|是| |开锁时间|
     "data": {
         "lock_id": 1000001,
         "result": 1,
-        "uid": 100000,
+        "uid": 100000,
         "mode": 1,
         "time": "2017-03-2910: 34: 34"
     }
