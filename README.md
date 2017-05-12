@@ -281,7 +281,7 @@ app_id|string|是| |app_id|
 lock_id|uint32|是| |锁id|
 name|string|是| |用户真实姓名|
 id_num|string|是| |用户真实身份证号|
-img_code|string|是| |图片 base64 编码|
+img_code|string|是| |图片 base64 编码，图片大小限制在100k以内|
 sign|string|是| |sign|
 
 ```json
