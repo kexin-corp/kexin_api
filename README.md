@@ -71,6 +71,7 @@
     StatusLockNotBoundAp        = 362 // 锁没有绑定ap
     StatusAddSelfForbidden      = 363 // 不允许添加自己
     StatusSetOrDelLockPwdFail   = 364 // 设置或删除开锁密码失败,稍后再试
+    StatusDeviceBusyFail        = 365 // 设备繁忙,请稍后再试
 
     StatusBadRequest                   = 400 // 请求错误, 检查请求参数
     StatusUnauthorized                 = 401 // 请先注册或登录
