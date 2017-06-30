@@ -245,14 +245,14 @@ app_id|string|是| |app_id|
 |字段名|类型|必填|示例|描述|
 ---|---|---|---|---|
 lock_id|uint32|是| |锁id|
-attach|string|是| |保留，这里填“”|
+attach|string|是| |保留，这里填“test”|
 sign|string|是| |sign|
 app_id|string|是| |app_id|
 
 ```json
 {
     "lock_id": 1000001,
-    "attach":"",
+    "attach":"test",
     "sign":"sign",
     "app_id":"app_id"
 }
