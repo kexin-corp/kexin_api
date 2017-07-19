@@ -21,92 +21,49 @@
 
 
 ## 二、<a name="StatusCode">状态码</a>
-```
-    StatusContinue              = 100
-    StatusSwitchingProtocols    = 101
 
-    StatusOK                    = 200
-    StatusCreated               = 201
-    StatusAccepted              = 202
-    StatusNonAuthoritativeInfo  = 203
-    StatusNoContent             = 204 // 没有内容
-    StatusResetContent          = 205
-    StatusPartialContent        = 206
+HTTP状态码|返回代码|含义|
+---|---|---|
+200|200|成功
+400|400001|参数不合法
+400|400002|密码不合法
+400|400003|验证码错误
+400|400004|验证签名失败
+402|402001|用户没有登录
+403|403001|服务器拒绝执行
+403|403002|登录失败，账号或密码错误
+403|403003|用户名已使用
+403|403004|邮箱已使用
+403|403005|手机号已使用
+403|403006|登出失败
+403|403007|注册失败
+403|403008|更新token失败
+403|403009|更新失败
+403|403010|人脸识别太频繁
+403|403011|锁ID已经存在
+403|403012|用户已授权
+403|403013|没有开锁权限
+403|403016|已经过期
+403|403017|人脸识别匹配错误
+403|403018|锁不在线
+403|403019|锁成员非空
+403|403020|锁没有绑定网关
+403|403021|不允许添加自己
+403|403022|设备繁忙,请稍后再试
+404|404001|请求的资源不存在
+404|404002|用户不存在
+404|404003|锁不存在
+500|500001|服务器内部错误
+500|500002|短信发送失败
+500|500003|开锁失败,稍后再试
+500|500005|json解析错误
+500|500006|json生成错误
+500|500007|数据库操作错误
+500|500008|RPC调用错误
+500|500008|请求超时
+501|501001|功能未实现
 
-    StatusMultipleChoices       = 300
-    StatusMovedPermanently      = 301
-    StatusFound                 = 302
-    StatusSeeOther              = 303
-    StatusNotModified           = 304
-    StatusUseProxy              = 305
-    StatusTemporaryRedirect     = 307
 
-    StatusUserNotExists         = 310 // 用户不存在
-    StatusLoginFail             = 311 // 登录失败，账号或密码错误
-    StatusPermissionDeniedFail  = 312 // 登录失败，没有权限
-    StatusLogoutFail            = 315 // 登出失败
-
-    StatusRegisterFail          = 320 // 注册失败
-    StatusUserNameUsed          = 321 // 用户名已使用
-    StatusEmailUsed             = 322 // 邮箱已使用
-    StatusTelUsed               = 323 // 手机号已使用
-    StatusUpdateTokenFail       = 324 // 更新token失败
-    StatusUserUpdateFail        = 325 // 更新失败
-    StatusPwdIllegal            = 326 // 密码不合法
-    StatusFaceExceed            = 327 // 人脸识别太频繁
-    StatusSmsFail               = 328 // 短信发送失败
-
-    StatusLockNotExists         = 350 // 锁不存在
-    StatusLockIdExists          = 351 // lock_id已经存在
-    StatusLockNoAlarm           = 352 // 没有警报
-    StatusLockUserAuthed        = 353 // 用户已授权
-    StatusLockUnAuthorized      = 354 // 没有权限
-    StatusLockNotBind           = 355 // 没有绑定
-    StatusLockBinded            = 356 // 已经绑定
-    StatusExpired               = 357 // 已经过期
-    StatusFaceErr               = 358 // 匹配错误
-    StatusOpenLockFail          = 359 // 开锁失败,稍后再试
-    StatusLockNotOnline         = 360 // 锁不在线
-    StatusLockMemberNotEmpty    = 361 // 锁成员非空
-    StatusLockNotBoundAp        = 362 // 锁没有绑定ap
-    StatusAddSelfForbidden      = 363 // 不允许添加自己
-    StatusSetOrDelLockPwdFail   = 364 // 设置或删除开锁密码失败,稍后再试
-    StatusDeviceBusyFail        = 365 // 设备繁忙,请稍后再试
-
-    StatusBadRequest                   = 400 // 请求错误, 检查请求参数
-    StatusUnauthorized                 = 401 // 请先注册或登录
-    StatusPaymentRequired              = 402
-    StatusForbidden                    = 403
-    StatusNotFound                     = 404
-    StatusMethodNotAllowed             = 405
-    StatusNotAcceptable                = 406
-    StatusProxyAuthRequired            = 407
-    StatusRequestTimeout               = 408
-    StatusConflict                     = 409
-    StatusGone                         = 410
-    StatusLengthRequired               = 411
-    StatusPreconditionFailed           = 412
-    StatusRequestEntityTooLarge        = 413
-    StatusRequestURITooLong            = 414
-    StatusUnsupportedMediaType         = 415
-    StatusRequestedRangeNotSatisfiable = 416
-    StatusExpectationFailed            = 417
-    StatusTeapot                       = 418
-    StatusPreconditionRequired         = 428
-    StatusTooManyRequests              = 429
-    StatusRequestHeaderFieldsTooLarge  = 431
-    StatusUnavailableForLegalReasons   = 451
-
-    StatusInternalServerError           = 500
-    StatusNotImplemented                = 501
-    StatusBadGateway                    = 502
-    StatusServiceUnavailable            = 503
-    StatusGatewayTimeout                = 504
-    StatusHTTPVersionNotSupported       = 505
-    StatusNetworkAuthenticationRequired = 511
-    
-    StatusUnknownError                  = 1000  //未知错误
-```
 ## 三、<a name="Sign">签名验证</a>
 #### 1.联系接口对接人获取app_id 和app_secret
 #### 2.签名步骤：
