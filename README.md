@@ -318,10 +318,11 @@ low_voltage|bool|是|false|是否低电压|
 ---|---|---|---|---|
 app_id|string|是| |app_id|
 lock_id|uint32|是| |锁id|
-effective_at|uint32|是| |开始生效时间，unix时间戳，必须是从当天开始的时间|
+effective_at|uint32|是| |开始生效时间，unix时间戳，必须是从当天开始的时间,必须是300的整数倍|
 expire|uint32|是| |密码有效时长，单位秒,目前固定写300秒|
 sign|string|是| |sign|
 
+因为目前只支持5分钟的临时密码，所以时间必须是5分钟也就是300的倍数
 ```json
 {
     "app_id": "app_kexin",
