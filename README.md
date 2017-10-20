@@ -6,7 +6,6 @@
 - [三、签名验证](#Sign)
 - [四、接口](#API)
     - [通过lock_id获取锁详情](#LockGet)
-    - [通过Mac获取锁详情](#LockByMacGet)
     - [网络远程开锁（需要网关）](#LockOpen)
     - [人脸识别远程开锁](#LockOpenFace)
     - [ 获取锁的状态信息（需要网关）](#LockState)
@@ -100,56 +99,6 @@ app_id|string|是| |app_id|
     "desc": "OK",
     "data": {
         "lock_id": 1000007,
-        "mac": "72:00:03:16:7d:f0",
-        "master": {
-            "name": "xiao ming",
-            "tel": "13591951888"
-        },
-        "name": "",
-        "descr": "",
-        "corp_id": 0,
-        "device_ver": "ver",
-        "firmware_ver": "",
-        "is_init": true,
-        "is_bind": true,
-        "init_at": "2016-09-26T15:23:35.570062558+08:00",
-        "bind_at": "2016-09-08T15:20:03.222925+08:00",
-        "updated_at": "2016-09-08T15:20:03.222925+08:00",
-        "state": 0,
-        "is_del": false
-    }
-}
-
-```
-
-###  <a name="LockByMacGet"> 通过mac获取锁详情</a>
-
-- method: post
-- url: /third/lock/by_mac/get
-- request
-
-|字段名|类型|必填|示例|描述|
----|---|---|---|---|
-mac|string|是| |锁mac|
-sign|string|是| |sign|
-app_id|string|是| |app_id|
-
-```json
-{
-    "mac": "72:00:03:16:7d:f0",
-    "sign":"sign",
-    "app_id":"app_id"
-}
-```
-
-- response data:
-
-```json
-{
-    "code": 200,
-    "desc": "OK",
-    "data": {
-        "lock_id": 1000001,
         "mac": "72:00:03:16:7d:f0",
         "master": {
             "name": "xiao ming",
